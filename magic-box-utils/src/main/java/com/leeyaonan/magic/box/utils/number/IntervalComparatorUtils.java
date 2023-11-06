@@ -40,4 +40,25 @@ public class IntervalComparatorUtils {
 
         return false;
     }
+
+    public static boolean hasIntersection(long[][] intervals) {
+        long[] starts = new long[intervals.length];
+        long[] ends = new long[intervals.length];
+
+        for (int i = 0; i < intervals.length; i++) {
+            starts[i] = intervals[i][0];
+            ends[i] = intervals[i][1];
+        }
+
+        Arrays.sort(starts);
+        Arrays.sort(ends);
+
+        for (int i = 0; i < intervals.length - 1; i++) {
+            if (starts[i + 1] <= ends[i]) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

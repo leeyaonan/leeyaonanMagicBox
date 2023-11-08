@@ -16,6 +16,42 @@ public class DateUtils {
     public static final String DATE_FORMAT_STANDARD_LONG = "yyyy-MM-dd HH:mm:ss";
     public static final String DATE_FORMAT_STANDARD_SHORT = "yyyy-MM-dd";
 
+    public static final SimpleDateFormat DATE_FORMAT_STANDARD_LONG_SDF = new SimpleDateFormat(DATE_FORMAT_STANDARD_LONG);
+    public static final SimpleDateFormat DATE_FORMAT_STANDARD_SHORT_SDF = new SimpleDateFormat(DATE_FORMAT_STANDARD_SHORT);
+
+
+    /**
+     * Date格式化为String
+     *
+     * @param date
+     * @param pattern
+     * @return
+     */
+    public static String formatString(Date date, String pattern) {
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        return sdf.format(date);
+    }
+
+    /**
+     * Date格式化为String
+     *
+     * @param date
+     * @return
+     */
+    public static String standardLongFormatString(Date date) {
+        return DATE_FORMAT_STANDARD_LONG_SDF.format(date);
+    }
+
+    /**
+     * Date格式化为String
+     *
+     * @param date
+     * @return
+     */
+    public static String standardShortFormatString(Date date) {
+        return DATE_FORMAT_STANDARD_SHORT_SDF.format(date);
+    }
+
     /**
      * 按照指定格式解析日期字符串
      *
@@ -40,6 +76,16 @@ public class DateUtils {
      */
     public static Date standardLongFormat(String dateString) {
         return format(dateString, DATE_FORMAT_STANDARD_LONG);
+    }
+
+    /**
+     * 标准日期解析，pattern=yyyy-MM-dd
+     *
+     * @param dateString
+     * @return
+     */
+    public static Date standardShortFormat(String dateString) {
+        return format(dateString, DATE_FORMAT_STANDARD_SHORT);
     }
 
     /**

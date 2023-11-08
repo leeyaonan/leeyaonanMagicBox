@@ -47,4 +47,29 @@ public class DateGeneratorUtils {
         calendar.set(Calendar.MILLISECOND, nanoOfSecond / 1_000_000);
         return calendar.getTime();
     }
+
+    /**
+     * 获取指定时间向后最近的半小时时间，例如：8:05，最近的时间是8:30
+     *
+     * @param date
+     * @return
+     */
+    public static Date getNearestHalfHour(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+
+        int minute = calendar.get(Calendar.MINUTE);
+        int second = calendar.get(Calendar.SECOND);
+
+        if (minute < 30) {
+            calendar.set(Calendar.MINUTE, 30);
+            calendar.set(Calendar.SECOND, 0);
+        } else {
+            calendar.set(Calendar.MINUTE, 0);
+            calendar.set(Calendar.SECOND, 0);
+            calendar.add(Calendar.HOUR_OF_DAY, 1);
+        }
+
+        return calendar.getTime();
+    }
 }

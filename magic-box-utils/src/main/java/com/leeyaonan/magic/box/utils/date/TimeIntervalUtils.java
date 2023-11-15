@@ -2,6 +2,8 @@ package com.leeyaonan.magic.box.utils.date;
 
 import com.leeyaonan.magic.box.utils.number.IntervalComparatorUtils;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -58,6 +60,31 @@ public class TimeIntervalUtils {
         return result;
     }
 
+    /**
+     * 将HH:mm格式的时间区间拆分为多个
+     *
+     * @param time1
+     * @param time2
+     * @return
+     */
+    public static List<String[]> sliceTimes(String time1, String time2, int minutesToAdd) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime startTime = LocalTime.parse(time1, formatter);
+        LocalTime endTime = LocalTime.parse(time2, formatter);
+        List<String[]> result = new ArrayList<>();
 
+        while (!startTime.isAfter(endTime)) {
+            String[] sliceTimes = new String[2];
+            sliceTimes[0] = startTime.format(formatter);
+            sliceTimes[1] = startTime.plusMinutes(minutesToAdd).format(formatter);
+            result.add(sliceTimes);
+            startTime = startTime.plusMinutes(minutesToAdd);
+            if (startTime.equals(endTime) || startTime.isAfter(endTime)) {
+                break;
+            }
+        }
+
+        return result;
+    }
 
 }

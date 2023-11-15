@@ -2,11 +2,11 @@ package com.leeyaonan.magic.box.utils;
 
 import com.leeyaonan.magic.box.utils.date.DateGeneratorUtils;
 import com.leeyaonan.magic.box.utils.date.DateUtils;
+import com.leeyaonan.magic.box.utils.date.TimeIntervalUtils;
 import com.leeyaonan.magic.box.utils.number.IntervalComparatorUtils;
 import org.junit.Test;
 
 import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -50,4 +50,13 @@ public class TimeIntervalUtilsTest {
         System.out.println(mergedIntervals);
     }
 
+    @Test
+    public void testSliceTime() {
+        String time1 = "09:00";
+        String time2 = "10:00";
+        List<String[]> result = TimeIntervalUtils.sliceTimes(time1, time2, 30);
+        for (String[] arr : result) {
+            System.out.println("[" + arr[0] + "," + arr[1] + "]");
+        }
+    }
 }

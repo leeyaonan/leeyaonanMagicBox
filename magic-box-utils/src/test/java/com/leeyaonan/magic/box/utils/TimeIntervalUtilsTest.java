@@ -7,6 +7,8 @@ import com.leeyaonan.magic.box.utils.number.IntervalComparatorUtils;
 import org.junit.Test;
 
 import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -58,5 +60,30 @@ public class TimeIntervalUtilsTest {
         for (String[] arr : result) {
             System.out.println("[" + arr[0] + "," + arr[1] + "]");
         }
+    }
+
+    @Test
+    public void testGetNextPeriodWeekdays() {
+        LocalDate startDate = LocalDate.of(2023, 11, 17);
+        List<LocalDate> monday = TimeIntervalUtils.getNextPeriodWeekdays(startDate, 28, "FRIDAY");
+        for (LocalDate date : monday) {
+            System.out.println(date);
+        }
+
+        long daysBetween = ChronoUnit.DAYS.between(startDate, LocalDate.of(2023, 12, 15));
+        System.out.println("两个日期之间的天数为： " + daysBetween);
+    }
+
+    @Test
+    public void testGetNextPeriodMonthdays() {
+        LocalDate startDate = LocalDate.of(2023, 11, 15);
+        List<LocalDate> monday = TimeIntervalUtils.getNextPeriodMonthdays(startDate, 28, 16);
+        for (LocalDate date : monday) {
+            System.out.println(date);
+            long daysBetween = ChronoUnit.DAYS.between(startDate, date);
+            System.out.println("两个日期之间的天数为： " + daysBetween);
+        }
+        long daysBetween = ChronoUnit.DAYS.between(LocalDate.of(2023, 11, 15), LocalDate.of(2023, 12, 16));
+        System.out.println("两个日期之间的天数为： " + daysBetween);
     }
 }

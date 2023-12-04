@@ -9,6 +9,7 @@ import org.junit.Test;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -85,5 +86,14 @@ public class TimeIntervalUtilsTest {
         }
         long daysBetween = ChronoUnit.DAYS.between(LocalDate.of(2023, 11, 15), LocalDate.of(2023, 12, 16));
         System.out.println("两个日期之间的天数为： " + daysBetween);
+    }
+
+    @Test
+    public void testGetNextPeriodMonthdays2() {
+        LocalDate startDate = LocalDate.of(2023, 11, 30);
+        List<LocalDate> nextPeriodMonthdays = TimeIntervalUtils.getNextPeriodMonthdays(startDate, 28, 28);
+        for (LocalDate nextDate : nextPeriodMonthdays) {
+            System.out.println(nextDate);
+        }
     }
 }

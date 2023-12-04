@@ -136,17 +136,18 @@ public class TimeIntervalUtils {
      */
     public static List<LocalDate> getNextPeriodMonthdays(LocalDate date, int futureDays, int monthday) {
         List<LocalDate> monthdayList = new ArrayList<>();
-        LocalDate nextMonthday = LocalDate.of(date.getYear(), date.getMonthValue(), monthday);
-        if (nextMonthday.isBefore(date)) {
-            nextMonthday = nextMonthday.plusMonths(1);
-        }
-
         LocalDate maxDate = date.plusDays(futureDays);
-        while (nextMonthday.isBefore(maxDate) || nextMonthday.equals(maxDate)) {
-            monthdayList.add(nextMonthday);
-            nextMonthday = nextMonthday.plusMonths(1);
+        // 遍历未来的天数，比较每月几号是否相符
+        for (int i = 0; i <= futureDays; i++) {
+            LocalDate temp = date.plusDays(i);
+            int dayOfMonth = temp.getDayOfMonth();
+            if (dayOfMonth != monthday) {
+                continue;
+            }
+            if (temp.isBefore(maxDate) || temp.equals(maxDate)) {
+                monthdayList.add(temp);
+            }
         }
-
         return monthdayList;
     }
 

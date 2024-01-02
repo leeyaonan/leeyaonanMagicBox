@@ -8,12 +8,21 @@ package com.leeyaonan.magic.box.config;
 public class SystemConfig {
 
     /**
+     * 根路径
+     *
+     * @return
+     */
+    public static String rootPath() {
+        return System.getProperty("user.dir");
+    }
+
+    /**
      * 测试图片文件路径
      *
      * @return
      */
     public static String picPath() {
-        return System.getProperty("user.dir") + "\\src\\test\\resources\\pic\\";
+        return rootPath() + "\\src\\test\\resources\\pic\\";
     }
 
     /**
@@ -22,6 +31,6 @@ public class SystemConfig {
      * @return
      */
     public static String outputPath() {
-        return System.getProperty("user.dir") + "\\src\\test\\resources\\output\\";
+        return rootPath() + "\\src\\test\\resources\\output\\";
     }
 }

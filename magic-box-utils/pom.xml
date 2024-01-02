@@ -57,7 +57,20 @@
             <version>4.13.2</version>
             <scope>test</scope>
         </dependency>
-        <!--junit start-->
+        <!--junit end-->
+
+        <!--ZXing start-->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+            <version>3.4.1</version>
+        </dependency>
+        <!--ZXing end-->
 
     </dependencies>
 

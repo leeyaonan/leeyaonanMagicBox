@@ -8,12 +8,12 @@ package com.leeyaonan.magic.box.config;
 public class SystemConfig {
 
     /**
-     * 根路径
+     * 根路径（按Linux标准，以/作为分隔符）
      *
      * @return
      */
     public static String rootPath() {
-        return System.getProperty("user.dir");
+        return System.getProperty("user.dir").replace("\\", "/");
     }
 
     /**
@@ -22,7 +22,7 @@ public class SystemConfig {
      * @return
      */
     public static String picPath() {
-        return rootPath() + "\\src\\test\\resources\\pic\\";
+        return rootPath() + "/src/test/resources/pic/";
     }
 
     /**
@@ -31,6 +31,6 @@ public class SystemConfig {
      * @return
      */
     public static String outputPath() {
-        return rootPath() + "\\src\\test\\resources\\output\\";
+        return rootPath() + "/src/test/resources/output/";
     }
 }

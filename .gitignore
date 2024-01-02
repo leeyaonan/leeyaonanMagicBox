@@ -27,4 +27,3 @@ hs_err_pid*
 *.iml
 target/
 rebel.xml
-/magic-box-utils/src/test/resources/output/

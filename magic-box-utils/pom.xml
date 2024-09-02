@@ -21,6 +21,11 @@
             <artifactId>lombok</artifactId>
             <version>1.18.26</version>
         </dependency>
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.3</version>
+        </dependency>
         <!--lombok end-->
 
         <!--json start-->
@@ -84,6 +89,15 @@
             <version>3.4.1</version>
         </dependency>
         <!--ZXing end-->
+
+        <!-- PDF -->
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.24</version>
+        </dependency>
+        <!-- PDF END -->
+
 
     </dependencies>
 

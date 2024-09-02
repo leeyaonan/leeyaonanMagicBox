@@ -17,7 +17,7 @@ public class JsonHandler {
      * @param excelFileName 导出为excel的文件名称
      */
     public static void jsonArray2Excel(String jsonFilePath, String excelFileName) {
-        String jsonString = TextFileUtils.readTextFileNowrap(jsonFilePath);
+        String jsonString = TextFileUtils.readTextFileNoWrap(jsonFilePath);
         JsonExcelUtils.exportJsonArrayToExcel(jsonString, excelFileName);
     }
 }

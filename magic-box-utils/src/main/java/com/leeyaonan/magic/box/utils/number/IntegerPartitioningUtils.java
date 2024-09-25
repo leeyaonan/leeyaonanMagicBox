@@ -103,10 +103,46 @@ public class IntegerPartitioningUtils {
         return result;
     }
 
+    /**
+     * 递归算法，且不会分拆出重复的数字
+     * @param n
+     * @return
+     */
+    public static List<List<Integer>> partitions4(int n) {
+        List<List<Integer>> result = new ArrayList<>();
+        partitionsHelper4(result, new ArrayList<>(), n, 1);
+        return result;
+    }
+
+    private static void partitionsHelper4(List<List<Integer>> result, List<Integer> current, int n, int start) {
+        if (n == 0) {
+            result.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (int part = start; part <= n; part++) {
+            current.add(part);
+            partitionsHelper4(result, current, n - part, part + 1);
+            current.remove(current.size() - 1);
+        }
+    }
+
     public static void main(String[] args) {
-        System.out.println(partitions1(5));
-        System.out.println(partitions2(5));
-        System.out.println(partitions3(5));
+//        System.out.println(partitions1(5));
+//        System.out.println(partitions2(5));
+//        System.out.println(partitions3(5));
+//        System.out.println(partitions4(5));
+//
+//        System.out.println(partitions1(5));
+//        System.out.println(partitions1(2));
+//        System.out.println(partitions1(2));
+//        System.out.println(partitions1(1));
+
+        System.out.println(partitions4(5));
+        System.out.println(partitions4(4));
+        System.out.println(partitions4(3));
+        System.out.println(partitions4(2));
+        System.out.println(partitions4(1));
     }
 
 

@@ -1,4 +1,4 @@
-package com.leeyaonan.magic.box.utils.base64;
+package com.leeyaonan.magic.box.utils.encrypt;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;

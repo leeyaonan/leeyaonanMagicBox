@@ -1,0 +1,2 @@
+==>  Preparing: SELECT msi.goods_id AS goodsId, 1 AS type FROM `medic_courses_domain`.`medic_series_info` msi WHERE 1 = 1 AND msi.version_no = 2 AND msi.status = 1 AND (msi.targeted_department_for_doctor IS NULL OR msi.targeted_department_for_doctor = '0' OR msi.targeted_department_for_doctor LIKE CONCAT('%',?,'%')) GROUP BY msi.goods_id LIMIT 1
+==> Parameters: 11002(String)
